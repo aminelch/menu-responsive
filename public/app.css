@@ -1,4 +1,7 @@
 /**************************************
+****    VARIABLES
+**************************************/
+/**************************************
 ****    BASE
 **************************************/
 * {
@@ -24,14 +27,11 @@ a {
   margin: 0px 20px; }
 
 /**************************************
-****    VARIABLES
-**************************************/
-/**************************************
 ****    HEADER
 **************************************/
 .header {
   position: fixed;
-  background: #009688;
+  background: #2E7D32;
   height: 66px;
   left: 0;
   right: 0;
@@ -55,7 +55,7 @@ a {
     padding: 0 10px;
     display: inline-block; }
   .menu a:hover {
-    color: yellow; }
+    color: inherit; }
 
 /**************************************
 ****    RESPONSIVE
@@ -63,6 +63,10 @@ a {
 @media only screen and (max-width: 600px) {
   .site-content {
     padding-top: 0; }
+
+  .site-pusher {
+    transition-duration: 0.3s;
+    transform: translateX(0); }
 
   .header {
     position: static; }
@@ -74,7 +78,9 @@ a {
     width: 60px;
     height: 66px;
     cursor: pointer;
-    background: goldenrod; }
+    opacity: 0.7;
+    transition: opacity 0.5s;
+    background: #313935; }
     .header__icon:after {
       content: '';
       position: absolute;
@@ -86,20 +92,31 @@ a {
       height: 16px;
       background: linear-gradient(to bottom, #fff 0%, #fff 20%, transparent 20%, transparent 40%, #fff 40%, #fff 60%, transparent 60%, transparent 80%, #fff 80%, #fff 100%); }
 
+  .header__icon:hover {
+    opacity: 1; }
+
   .menu {
-    display: none;
     position: absolute;
     width: 250px;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: #009688; }
+    transform: translateX(-250px);
+    background-color: #1B5E20;
+    transition-duration: 1s; }
     .menu a {
       display: block;
       height: 40px;
-      text-align: center;
       line-height: 40px;
-      border-bottom: 1px solid  #8ee392; } }
+      text-align: center;
+      border-bottom: 1px solid #1B5E20;
+      opacity: 0.3;
+      transition: opacity 0.3s; }
+    .menu a:hover {
+      opacity: 1; }
+
+  .with-sidebar .site-pusher {
+    transform: translateX(250px); } }
 
 /*# sourceMappingURL=app.css.map */

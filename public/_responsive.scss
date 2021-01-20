@@ -2,6 +2,10 @@
     .site-content{
         padding-top: 0;
     }
+    .site-pusher{
+        transition-duration: 0.3s;
+        transform: translateX(0);
+    }
     .header{
         position:static;
     }
@@ -12,7 +16,9 @@
         width: 60px;
         height: 66px;
         cursor: pointer;
-        background: goldenrod;
+        opacity:0.7;
+        transition: opacity .5s ;
+        background: $header-icon-bg;
         &:after{
             content: '';
             position: absolute;
@@ -22,29 +28,44 @@
             display: block;
             width: 25px;
             height: 16px;
-
-
-
             background:linear-gradient(to bottom, #fff 0%, #fff 20%, transparent 20%, transparent 40%, #fff 40%, #fff 60%, transparent 60%, transparent 80%, #fff 80%, #fff 100%);
         }
+
+
+    }
+    .header__icon:hover{
+        opacity:1;
     }
     .menu{
-        display:none;
+        // display:none;
         position: absolute;
-        width: 250px;
+        width: $menu-width;
         top:0;
         right:0;
         bottom: 0;
         left:0;
-        background-color: $header-bg;
-
+        transform: translateX($menu-width * -1);
+        background-color: $header-darken-bg;
+        transition-duration: 1s;
         a{
             display: block;
             height: 40px;
-            text-align: center;
             line-height: 40px;
-            border-bottom: 1px solid  #8ee392;
+            text-align: center;
+            border-bottom: 1px solid  $header-darken-bg;
+            opacity:0.3;
+            transition: opacity 0.3s ;
+        }
+        a:hover{
+            opacity:1;
         }
 
+    }
+
+    .with-sidebar{
+        // .menu{transform: translateX(0);}
+        .site-pusher{
+            transform: translateX($menu-width);
+        }
     }
 }
